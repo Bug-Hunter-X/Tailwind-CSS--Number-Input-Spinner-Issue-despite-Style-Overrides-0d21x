@@ -1,0 +1,34 @@
+```javascript
+// In your main app.js or similar file where you initialize Tailwind:
+import './input.css'; // Make sure to import your custom styles after the main Tailwind stylesheet
+
+// ... rest of your app.js ...
+```
+
+```css
+/* input.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your custom styles to override Tailwind's defaults */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*Crucially, add these for Firefox*/
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+/*Ensure this style is applied after all others to ensure override*/
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance:textfield;
+}
+```
